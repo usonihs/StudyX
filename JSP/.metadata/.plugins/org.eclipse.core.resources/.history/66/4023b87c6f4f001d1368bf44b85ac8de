@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Image Tag</title>
+</head>
+<body>
+	<p><img alt="Google Logo" src="./images/google.png"></p>
+	<p><img alt="Google Logo" src="./images/google.png" width="100"></p>
+	<p><img alt="Google Logo" src="https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/image8-2.jpg?width=595&height=400&name=image8-2.jpg"></p>
+	
+	<h1>오늘 주목할 만한 남성 의류</h1>
+		<table border="1">
+		<tr>
+		<td>
+		<ul>
+		<li><img alt="jeans" src="https://dictionary.cambridge.org/ko/images/full/jeans_noun_002_19715.jpg?version=5.0.252" width="80"> summer jeansdddddddddddddddddddddddddddddddd</li>
+		<li><img alt="jeans" src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fscontent-nrt1-1.cdninstagram.com%2Fv%2Ft51.2885-15%2Fe35%2F73457338_205429870472507_6732986522699668876_n.jpg%3F_nc_ht%3Dscontent-nrt1-1.cdninstagram.com%26_nc_cat%3D111%26oh%3D5cf2f4793a77ac4bd8664e19a634f80a%26oe%3D5E79C239&type=a340" width="80"> cool slacks</li>
+		<li><img alt="jeans" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fshopping-phinf.pstatic.net%2Fmain_3384394%2F33843949786.20220803165431.jpg&type=sc960_832" width="80"> New cotton pants</li>
+		</td>
+		</ul>
+		</tr>
+		</table>
+	
+</body>
+</html>

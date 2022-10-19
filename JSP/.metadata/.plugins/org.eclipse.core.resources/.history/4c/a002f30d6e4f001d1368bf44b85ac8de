@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Image Tag</title>
+</head>
+<body>
+	<p><img alt="Google Logo" src="./images/google.png1"></p>
+	<p><img alt="Google Logo" src="./images/google.png" width="100"></p>
+	<p><img alt="Google Logo" src="https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/image8-2.jpg?width=595&height=400&name=image8-2.jpg"></p>
+	<p><img alt="Google Logo" src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></p>
+</body>
+</html>
