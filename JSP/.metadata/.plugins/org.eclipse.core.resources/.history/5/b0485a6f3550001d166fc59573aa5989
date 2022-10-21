@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+int num1 = Integer.parseInt(request.getParameter("num1"));
+int num2 = Integer.parseInt(request.getParameter("num2"));
+%>
+	<%
+	if (request.getParameter("method").equals("add")) {
+		out.println(num1 + num2);
+	} else if (request.getParameter("method").equals("sub")) {
+		out.println(num1 - num2);
+	} else if (request.getParameter("method").equals("mult")) {
+		out.println(num1 * num2);
+	} else if (request.getParameter("method").equals("div")) {
+		out.println(num1 / num2);
+	}
+	%>
+
+	두 수의
+	<%=request.getParameter("method")%>
+
+</body>
+</html>

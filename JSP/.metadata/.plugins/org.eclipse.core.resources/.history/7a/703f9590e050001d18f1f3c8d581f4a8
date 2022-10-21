@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>뺄셈</title>
+</head>
+<body>
+
+<form action="ResponseAge_11.jsp" method="get">
+
+<%
+int num1 = Integer.parseInt(request.getParameter("num1"));
+int num2 = Integer.parseInt(request.getParameter("num2"));
+%>
+
+</form>
+
+</body>
+</html>

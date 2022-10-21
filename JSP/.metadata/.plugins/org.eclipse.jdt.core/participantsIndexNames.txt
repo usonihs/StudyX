@@ -1,3 +1,5 @@
 INDEX VERSION 1.131
 /Users/usonihs/Desktop/JSP/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2025407336.index
 /JSP/src/main/java
+/Users/usonihs/Desktop/JSP/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1960975884.index
+/Servlets/src/main/java
