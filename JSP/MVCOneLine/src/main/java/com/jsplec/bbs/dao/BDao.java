@@ -1,0 +1,133 @@
+package com.jsplec.bbs.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import com.jsplec.bbs.dto.BDto;
+
+public class BDao {
+
+	// Field
+
+	DataSource dataSource;
+
+	// Constructor
+
+	public BDao() {
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/mvc");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 전체 검색
+	public ArrayList<BDto> list() {
+		ArrayList<BDto> dtos = new ArrayList<BDto>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select olSeq, olName, olTitle, olDate from mvc_oneline";
+
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int olSeq = resultSet.getInt("olSeq");
+				String olName = resultSet.getString("olName");
+				String olTitle = resultSet.getString("olTitle");
+				Timestamp olDate = resultSet.getTimestamp("olDate");
+
+				BDto dto = new BDto(olSeq, olName, olTitle, olDate);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+
+	} // list
+
+	// 입력하기
+	public void write(String olName, String olTitle) {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "insert into mvc_oneline (olName, olTitle, olDate) values (?,?,now())";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, olName);
+			preparedStatement.setString(2, olTitle);
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// 삭제 하기
+	public void delete(String solSeq) {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "delete from mvc_oneline where olSeq = ? ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(solSeq));
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

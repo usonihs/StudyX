@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<main>
+	
+		<div class="row">
+			
+			<c:forEach items="${productList}" var="dto">
+				<div class="col">
+					<div class="card" style="width: 14rem;">
+					<a href="productDetail.do?productmodel=${dto.productmodel}">
+						<img src="./productListImage/practice.png" class="card-img-top"
+							alt="..." value="${dto.productmodel}">
+					</a>
+						<div class="card-body">
+							<p class="card-text" align="center">${dto.productbrand} ${dto.productmodel}</p>
+							<p class="card-text" align="center">${dto.productprice}</p>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+
+	</main>
+
+
+</body>
+</html>

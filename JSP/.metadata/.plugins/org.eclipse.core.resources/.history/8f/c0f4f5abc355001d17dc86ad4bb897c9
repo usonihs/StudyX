@@ -1,0 +1,213 @@
+package com.jsplec.bbs.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import com.jsplec.bbs.dto.BDto;
+
+public class BDao {
+
+	DataSource dataSource;
+
+	public BDao() {
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/mvc");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 전체 보기
+	public ArrayList<BDto> list(String queryName, String content) {
+		ArrayList<BDto> dtos = new ArrayList<BDto>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query1 = "select * from mvc_address ";
+			String query2 = "where " + queryName + "like '%" + content + "%'";
+
+			preparedStatement = connection.prepareStatement(query1 + query2);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int seq = resultSet.getInt("seq");
+				String name = resultSet.getString("name");
+				String phone = resultSet.getString("phone");
+				String address = resultSet.getString("address");
+				String email = resultSet.getString("email");
+				String relation = resultSet.getString("relation");
+
+				BDto dto = new BDto(seq, name, phone, address, email, relation);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+
+	} // list
+
+	// 입력하기
+	public void write(String name, String phone, String address, String email, String relation) {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "insert into mvc_address (name, phone, address, email, relation) values (?,?,?,?,?)";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, name);
+			preparedStatement.setString(2, phone);
+			preparedStatement.setString(3, address);
+			preparedStatement.setString(4, email);
+			preparedStatement.setString(5, relation);
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// 내용 보기
+	public BDto contentView(String sSeq) {
+		BDto dto = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select * from mvc_address where seq = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(sSeq));
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				int seq = resultSet.getInt("seq");
+				String name = resultSet.getString("name");
+				String phone = resultSet.getString("phone");
+				String address = resultSet.getString("address");
+				String email = resultSet.getString("email");
+				String relation = resultSet.getString("relation");
+
+				dto = new BDto(seq, name, phone, address, email, relation);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dto;
+
+	}
+
+	// 수정 하기
+	public void modify(String name, String phone, String address, String email, String relation, String sSeq) {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "update mvc_address set name = ?, phone = ?, address = ?, email = ?, relation = ? where seq = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, name);
+			preparedStatement.setString(2, phone);
+			preparedStatement.setString(3, address);
+			preparedStatement.setString(4, email);
+			preparedStatement.setString(5, relation);
+			preparedStatement.setInt(6, Integer.parseInt(sSeq));
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// 삭제 하기
+	public void delete(String sSeq) {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "delete from mvc_address where seq = ? ";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(sSeq));
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+}

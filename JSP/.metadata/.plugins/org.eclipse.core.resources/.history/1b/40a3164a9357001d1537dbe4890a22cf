@@ -1,0 +1,78 @@
+package com.jsplec.bbs.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import com.jsplec.bbs.dto.BDto;
+
+public class BDao {
+
+	// Field
+
+	DataSource dataSource;
+
+	// Constructor
+
+	public BDao() {
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/mvc");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 전체 검색
+	public ArrayList<BDto> productList() {
+		ArrayList<BDto> dtos = new ArrayList<BDto>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select productid, productmodel, productprice, productsize, productbrand, productcategory from product";
+
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int productid = resultSet.getInt("productid");
+				String productmodel = resultSet.getString("productmodel");
+				int productprice = resultSet.getInt("productprice");
+				String productsize = resultSet.getString("productsize");
+				String productbrand = resultSet.getString("productbrand");
+				String productcategory = resultSet.getString("productcategory");
+
+				BDto dto = new BDto(productid, productmodel, productprice, productsize, productbrand, productcategory);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+
+	} // list
+
+
+}

@@ -1,0 +1,86 @@
+package com.jsplec.bbs.dto;
+
+
+public class BDto {
+
+	// Field
+	
+	String productmodel;
+	int productprice;
+
+	// Constructor
+
+	public BDto() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public BDto(String productmodel, int productprice) {
+		super();
+		this.productmodel = productmodel;
+		this.productprice = productprice;
+	}
+
+
+	public int getProductid() {
+		return productid;
+	}
+
+
+	public void setProductid(int productid) {
+		this.productid = productid;
+	}
+
+
+	public String getProductmodel() {
+		return productmodel;
+	}
+
+
+	public void setProductmodel(String productmodel) {
+		this.productmodel = productmodel;
+	}
+
+
+	public int getProductprice() {
+		return productprice;
+	}
+
+
+	public void setProductprice(int productprice) {
+		this.productprice = productprice;
+	}
+
+
+	public String getProductsize() {
+		return productsize;
+	}
+
+
+	public void setProductsize(String productsize) {
+		this.productsize = productsize;
+	}
+
+
+	public String getProductbrand() {
+		return productbrand;
+	}
+
+
+	public void setProductbrand(String productbrand) {
+		this.productbrand = productbrand;
+	}
+
+
+	public String getProductcategory() {
+		return productcategory;
+	}
+
+
+	public void setProductcategory(String productcategory) {
+		this.productcategory = productcategory;
+	}
+	
+	
+
+}

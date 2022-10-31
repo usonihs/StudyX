@@ -1,0 +1,37 @@
+package com.jsplec.bbs.dto;
+
+import java.sql.Timestamp;
+
+public class BDto {
+
+	// Field
+	
+	int productid;
+	String productmodel;
+	int productprice;
+	String productsize;
+	String productbrand;
+	String productcategory;
+
+
+	// Constructor
+
+	public BDto() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public BDto(int productid, String productmodel, int productprice, String productsize, String productbrand,
+			String productcategory) {
+		super();
+		this.productid = productid;
+		this.productmodel = productmodel;
+		this.productprice = productprice;
+		this.productsize = productsize;
+		this.productbrand = productbrand;
+		this.productcategory = productcategory;
+	}
+	
+	
+
+}

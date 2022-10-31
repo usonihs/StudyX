@@ -1,0 +1,24 @@
+package com.jsplec.bbs.dto;
+
+public class brandDto {
+	
+	String productbrand;
+	
+	public brandDto() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public brandDto(String brand) {
+		super();
+		this.brand = brand;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+	
+}

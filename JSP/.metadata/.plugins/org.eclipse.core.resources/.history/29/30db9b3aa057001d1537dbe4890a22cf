@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div align="center">
+	<h1>product1</h1>
+	<table border="1">
+		<tr>
+			<th>model</th><th>price</th>
+		</tr>
+		<c:forEach items="${productList}" var="dto">
+			<tr>
+				<td>${dto.productmodel}</td>
+				<td>${dto.productprice}</td>
+			</tr>
+		</c:forEach>
+	</table>
+</div>
+
+</body>
+</html>

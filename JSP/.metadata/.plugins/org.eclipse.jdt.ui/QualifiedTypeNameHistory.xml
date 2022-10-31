@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javax.security.auth.message.callback.PrivateKeyCallback.Request"/>
-    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.BCommand"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.BWriteCommand"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.dao.BDao"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.BContentCommand"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.BModifyCommand"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.BDeleteCommand"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.BListCommand"/>
+    <fullyQualifiedTypeName name="com.jsplec.customer.command.SCustomerProductListCommand"/>
+    <fullyQualifiedTypeName name="com.jsplec.customer.dto.CProductListDto"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="com.jsplec.customer.dao.CProductListDao"/>
+    <fullyQualifiedTypeName name="com.jsplec.customer.dto.SCustomerProductListDto"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.jdbc.pool.DataSource"/>
+    <fullyQualifiedTypeName name="javax.naming.Context"/>
+    <fullyQualifiedTypeName name="javax.naming.InitialContext"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.dto.brandDto"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.dao.brandDao"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.brandListCommand"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.dto.BDto"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.brandProductListCommand"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.dto.brandProductListDto"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.dao.brandProductListDao"/>
+    <fullyQualifiedTypeName name="com.jsplec.customer.dao.SCustomerBrandListDao"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.jsplec.customer.dto.SCustomerBrandListDto"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.dto.categoryDto"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.dao.categoryDao"/>
+    <fullyQualifiedTypeName name="com.jsplec.bbs.command.categoryListCommand"/>
 </qualifiedTypeNameHistroy>

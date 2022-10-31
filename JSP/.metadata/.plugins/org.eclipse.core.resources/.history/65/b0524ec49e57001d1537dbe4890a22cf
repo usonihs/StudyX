@@ -1,0 +1,29 @@
+package com.jsplec.bbs.dao;
+
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import com.jsplec.bbs.dto.brandDto;
+
+public class brandDao {
+	
+	DataSource dataSource;
+	
+	public brandDao() {
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/mvc");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<brandDto> brandList(){
+		ArrayList<brandDto> dtos = new ArrayList<brandDto>();
+		
+	}
+	return dtos;
+}

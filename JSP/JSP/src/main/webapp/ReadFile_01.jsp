@@ -15,7 +15,7 @@
 	BufferedReader reader = null; // 파일 내용 불러오기
 
 	try {
-		String filePath = application.getRealPath("File.txt");
+		String filePath = application.getRealPath("File.txt"); // 
 		reader = new BufferedReader(new FileReader(filePath));
 		while (true) {
 			String str = reader.readLine();
